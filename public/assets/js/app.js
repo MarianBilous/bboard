@@ -193,7 +193,7 @@ $(function () {
 new PerfectScrollbar('.header-message-list');
 new PerfectScrollbar('.header-notifications-list');
 
-// display a modal (edit modal)
+// display edit modal
 $(document).on('click', '#editButton', function(event) {
     event.preventDefault();
     let href = $(this).attr('data-attr');
@@ -201,11 +201,8 @@ $(document).on('click', '#editButton', function(event) {
         url: href,
         // return the result
         success: function(result) {
-            console.log(result.body)
-
-            $('.show-edit-modal').append(result.body);
-            $('#editBody').html(result).show();
             $('#editModal').modal("show");
+            $('#editBody').html(result).show();
         },
         error: function(jqXHR, testStatus, error) {
             console.log(error);
@@ -215,17 +212,19 @@ $(document).on('click', '#editButton', function(event) {
     })
 });
 
-// display a modal (create modal)
+// display create modal
 $(document).on('click', '#createButton', function(event) {
     event.preventDefault();
+    let href = $(this).attr('data-attr');
     $.ajax({
+        url: href,
         success: function(result) {
             $('#createModal').modal("show");
+            $('#createBody').html(result).show();
         },
         error: function(jqXHR, testStatus, error) {
             console.log(error);
             alert("Page " + href + " cannot open. Error:" + error);
-            $('#loader').hide();
         },
         timeout: 8000
     })

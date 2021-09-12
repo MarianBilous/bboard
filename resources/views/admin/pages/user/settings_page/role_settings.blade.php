@@ -9,7 +9,7 @@
                 <button data-toggle="modal"
                         id="createButton"
                         data-target="#createModal"
-                        data-attr="{{ route('user.create') }}"
+                        data-attr="{{ route('roles.create') }}"
                         class="btn btn-light btn-sm mb-2">
                     {{ __('user.settings.roles.new_role') }}
                 </button>
@@ -61,9 +61,41 @@
         </div>
     </div>
 </div>
-<div class="show-edit-modal">
 
+<!-- edit modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog"
+     aria-labelledby="mediumModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>{{ __('user.settings.roles.edit_role') }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="editBody">
+
+            </div>
+        </div>
+    </div>
 </div>
-{{--@include('admin.pages.user.settings_page.role_edit_modal')--}}
 
-@include('admin.pages.user.settings_page.role_create_modal')
+<!-- create modal -->
+<div class="modal fade" id="createModal" tabindex="-1" role="dialog"
+     aria-labelledby="createModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>{{ __('user.settings.roles.create_role') }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="createBody">
+
+            </div>
+        </div>
+    </div>
+</div>

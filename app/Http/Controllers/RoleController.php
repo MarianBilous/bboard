@@ -31,9 +31,8 @@ class RoleController extends Controller
     public function index()
     {
         $roles = Role::all();
-        $permission = Permission::all();
 
-        return view('admin.pages.user.settings', compact('roles', 'permission'));
+        return view('admin.pages.user.settings', compact('roles'));
     }
 
     /**
@@ -43,7 +42,9 @@ class RoleController extends Controller
      */
     public function create()
     {
+        $permissions = Permission::get();
 
+        return view('admin.pages.user.settings_page.role_create_modal', compact('permissions'));
     }
 
     /**
@@ -94,9 +95,7 @@ class RoleController extends Controller
             ->pluck('role_has_permissions.permission_id', 'role_has_permissions.permission_id')
             ->all();
 
-        return response()->json([
-            'body' => view('admin.pages.user.settings_page.role_edit_modal', compact('role', 'permissions', 'rolePermissions'))->render(),
-        ]);
+        return view('admin.pages.user.settings_page.role_edit_modal', compact('role', 'permissions', 'rolePermissions'));
     }
 
     /**
@@ -108,6 +107,10 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+        ]);
+
         $role = Role::find($id);
         $role->name = $request['name'];
         $role->save();

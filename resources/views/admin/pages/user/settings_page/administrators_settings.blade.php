@@ -58,6 +58,40 @@
     </div>
 </div>
 
-@include('admin.pages.user.settings_page.user_edit_modal')
+<!-- edit modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog"
+     aria-labelledby="mediumModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>{{ __('user.settings.administrators.edit_user') }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="editBody">
 
-@include('admin.pages.user.settings_page.user_create_modal')
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- create modal -->
+<div class="modal fade" id="createModal" tabindex="-1" role="dialog"
+     aria-labelledby="createModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>{{ __('user.settings.administrators.create_user') }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="createBody">
+
+            </div>
+        </div>
+    </div>
+</div>

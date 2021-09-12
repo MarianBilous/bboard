@@ -29,7 +29,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //return response()->json(true);
+        return view('admin.pages.user.settings_page.user_create_modal');
     }
 
     /**
@@ -78,7 +78,7 @@ class UserController extends Controller
             return null;
         }
 
-        return response()->json($user);
+        return view('admin.pages.user.settings_page.user_edit_modal', compact('user'));
     }
 
     /**
