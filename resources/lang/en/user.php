@@ -26,6 +26,7 @@ return [
             'create_user' => 'Create User',
             'first_name' => 'First Name',
             'last_name' => 'Last Name',
+            'role' => 'Role',
             'password' => 'Password',
             'confirm_password' => 'Confirm password',
             'save' => 'Save',

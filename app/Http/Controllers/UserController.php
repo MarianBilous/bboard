@@ -6,7 +6,9 @@ use App\Http\Requests\UserFormRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -29,7 +31,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.user.settings_page.user_create_modal');
+        $roles = Role::all()->pluck('name', 'name');
+
+        return view('admin.pages.user.settings_page.user_create_modal', compact('roles'));
     }
 
     /**
@@ -42,8 +46,9 @@ class UserController extends Controller
     {
         $user = new User();
 
-        $data = $request->only(['email', 'password', 'first_name', 'last_name']);
+        $data = $request->only(['email', 'password', 'first_name', 'last_name', 'role']);
         $user->fill($data);
+        $user->assignRole($data['role']);
         $user->save();
 
         return redirect()->route('user.index');
@@ -72,13 +77,15 @@ class UserController extends Controller
             return null;
         }
 
+        $roles = Role::all()->pluck('name', 'name');
         $user = User::find($id);
+        $userRole = $user->roles->pluck('name','name')->all();
 
         if (!$user) {
             return null;
         }
 
-        return view('admin.pages.user.settings_page.user_edit_modal', compact('user'));
+        return view('admin.pages.user.settings_page.user_edit_modal', compact('user', 'roles', 'userRole'));
     }
 
     /**
@@ -104,6 +111,9 @@ class UserController extends Controller
 
         $user = User::find($id);
         $user->update($data);
+
+        DB::table('model_has_roles')->where('model_id', $id)->delete();
+        $user->assignRole($data['role']);
 
         return redirect()->route('user.index');
     }
