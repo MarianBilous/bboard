@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SettingController;
@@ -38,4 +39,6 @@ Route::group(['prefix' => 'backend', 'middleware' => ['auth']], function () {
 //    Route::get('user', [UserController::class, 'index'])->name('settings.user');
 
     Route::resource('roles', RoleController::class);
+
+    Route::resource('authors', AuthorController::class);
 });

@@ -1,7 +1,5 @@
 @extends('admin.layouts.layout')
 
-@section('title', 'Settings')
-
 @section('content')
 
     @include('admin.includes.breadcrumb', ['title' => __('user.settings.labels.settings')])

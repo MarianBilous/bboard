@@ -16,25 +16,12 @@
     </div>
     <!--navigation-->
     <ul class="metismenu" id="menu">
-        <li>
-            <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bx bx-home-alt"></i>
-                </div>
-                <div class="menu-title">Dashboard</div>
-            </a>
-            <ul>
-                <li> <a href="index.html"><i class="bx bx-right-arrow-alt"></i>Analytics</a>
-                </li>
-                <li> <a href="index2.html"><i class="bx bx-right-arrow-alt"></i>Sales</a>
-                </li>
-            </ul>
-        </li>
         <li class="menu-label">Web Apps</li>
         <li>
-            <a href="{{ url('/') }}">
-                <div class="parent-icon"><i class="bx bx-file"></i>
+            <a href="{{ route('authors.index') }}">
+                <div class="parent-icon"><i class="bx bx-group"></i>
                 </div>
-                <div class="menu-title">{{ $title }}</div>
+                <div class="menu-title">{{ __('menu.authors') }}</div>
             </a>
         </li>
         <li>

@@ -1,6 +1,8 @@
 <div class="card">
     <div class="card-body">
+
         @include('admin.includes.errors')
+
         <div>
             <h5></h5>
             <button data-toggle="modal"
