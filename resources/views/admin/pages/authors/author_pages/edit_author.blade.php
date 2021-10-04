@@ -12,11 +12,11 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <strong>{{ __('authors.first_name') }}</strong>
-                        {!! Form::text('name', null, array('class' => 'form-control')) !!}
+                        {!! Form::text('name', null, ['class' => 'form-control']) !!}
                     </div>
                     <div class="form-group col-md-6">
                         <strong>{{ __('authors.last_name') }}</strong>
-                        {!! Form::text('surname', null, array('class' => 'form-control')) !!}
+                        {!! Form::text('surname', null, ['class' => 'form-control']) !!}
                     </div>
                 </div>
                 {{Form::submit(__('authors.update'), ['class' => 'btn btn-light'])}}

@@ -6,6 +6,6 @@ return [
     'create' => 'Create Author',
     'update' => 'Update Author',
     'id' => 'ID',
-    'first_name' => 'First Name',
-    'last_name' => 'Last Name',
+    'name' => 'Name',
+    'surname' => 'Surname',
 ];

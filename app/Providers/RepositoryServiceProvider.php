@@ -17,6 +17,11 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Repositories\RepositoryInterface',
             'App\Repositories\AuthorRepository'
         );
+
+        $this->app->bind(
+            'App\Repositories\RepositoryInterface',
+            'App\Repositories\GenreRepository'
+        );
     }
 
     /**

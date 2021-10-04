@@ -229,3 +229,11 @@ $(document).on('click', '#createButton', function(event) {
         timeout: 8000
     })
 });
+
+$(function () {
+    let formSwitch = $('#is_enabled');
+
+    formSwitch.change(function () {
+        formSwitch.val(formSwitch.is(':checked') ? 1 : 0);
+    })
+})

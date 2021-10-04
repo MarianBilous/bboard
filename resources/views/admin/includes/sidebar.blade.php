@@ -25,10 +25,10 @@
             </a>
         </li>
         <li>
-            <a href="chat-box.html">
-                <div class="parent-icon"> <i class="bx bx-conversation"></i>
+            <a href="{{ route('genres.index') }}">
+                <div class="parent-icon"> <i class="bx bx-spreadsheet"></i>
                 </div>
-                <div class="menu-title">Chat Box</div>
+                <div class="menu-title">{{ __('menu.genres') }}</div>
             </a>
         </li>
         <li>

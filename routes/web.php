@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\GenreController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SettingController;
@@ -41,4 +42,6 @@ Route::group(['prefix' => 'backend', 'middleware' => ['auth']], function () {
     Route::resource('roles', RoleController::class);
 
     Route::resource('authors', AuthorController::class);
+
+    Route::resource('genres', GenreController::class);
 });

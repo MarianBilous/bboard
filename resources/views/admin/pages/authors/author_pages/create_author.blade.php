@@ -11,12 +11,12 @@
             {!! Form::open(['route' => 'authors.store', 'method' => 'POST']) !!}
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <strong>{{ __('authors.first_name') }}</strong>
-                        {!! Form::text('name', null, array('class' => 'form-control')) !!}
+                        <strong>{{ __('authors.name') }}</strong>
+                        {!! Form::text('name', null, ['class' => 'form-control']) !!}
                     </div>
                     <div class="form-group col-md-6">
-                        <strong>{{ __('authors.last_name') }}</strong>
-                        {!! Form::text('surname', null, array('class' => 'form-control')) !!}
+                        <strong>{{ __('authors.surname') }}</strong>
+                        {!! Form::text('surname', null, ['class' => 'form-control']) !!}
                     </div>
                 </div>
                 {{Form::submit(__('authors.create'), ['class' => 'btn btn-light'])}}

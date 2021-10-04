@@ -1,9 +1,9 @@
-{!! Form::open(['route' => 'roles.store', 'method' => 'POST']) !!}
+{{ Form::open(['route' => 'roles.store', 'method' => 'POST']) }}
     @method('POST')
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>{{ __('user.settings.roles.name') }}</strong>
-            {!! Form::text('name', null, array('class' => 'form-control')) !!}
+            {{ Form::text('name', null, ['class' => 'form-control']) }}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -16,8 +16,8 @@
                 </div>
             @endforeach
         </div>
-        </div>
-    <div class="modal-footer">
-        {{Form::submit(__('user.settings.roles.save'), ['class' => 'btn btn-light'])}}
     </div>
-{!! Form::close() !!}
+    <div class="modal-footer">
+        {{ Form::submit(__('user.settings.roles.save'), ['class' => 'btn btn-light']) }}
+    </div>
+{{ Form::close() }}

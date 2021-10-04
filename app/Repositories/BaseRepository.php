@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
@@ -24,6 +23,7 @@ class BaseRepository implements RepositoryInterface
 
     /**
      * Find record by id.
+     *
      * @param $id
      * @return mixed
      */
@@ -44,6 +44,7 @@ class BaseRepository implements RepositoryInterface
 
     /**
      * Delete record by id.
+     *
      * @param $id
      * @return mixed
      */
@@ -54,6 +55,7 @@ class BaseRepository implements RepositoryInterface
 
     /**
      * Create record.
+     *
      * @param array $attributes
      * @return mixed
      */

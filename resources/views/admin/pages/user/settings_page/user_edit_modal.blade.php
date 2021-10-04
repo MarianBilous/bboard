@@ -2,19 +2,19 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>{{ __('user.settings.administrators.first_name') }}</strong>
-            {!! Form::text('first_name', null, array('class' => 'form-control')) !!}
+            {!! Form::text('first_name', null, ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>{{ __('user.settings.administrators.last_name') }}</strong>
-            {!! Form::text('last_name', null, array('class' => 'form-control')) !!}
+            {!! Form::text('last_name', null, ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>{{ __('user.settings.administrators.email') }}</strong>
-            {!! Form::text('email', null, array('class' => 'form-control')) !!}
+            {!! Form::text('email', null, ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -26,13 +26,13 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>{{ __('user.settings.administrators.password') }}</strong>
-            {!! Form::password('password', array('class' => 'form-control')) !!}
+            {!! Form::password('password', ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>{{ __('user.settings.administrators.confirm_password') }}</strong>
-            {!! Form::password('confirmPassword', array('class' => 'form-control')) !!}
+            {!! Form::password('confirmPassword', ['class' => 'form-control']) !!}
         </div>
     </div>
     <div class="modal-footer">
