@@ -13,4 +13,18 @@ class Genre extends Model
         'name',
         'is_enabled',
     ];
+
+    protected $casts = [
+        'is_enabled' => 'boolean',
+    ];
+
+    /**
+     * Return the string value of the is_enabled field.
+     *
+     * @return string
+     */
+    public function getIsEnabledToStringAttribute()
+    {
+        return $this->is_enabled ? 'YES' : 'NO';
+    }
 }

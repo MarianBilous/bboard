@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\GenreRequest;
 use App\Models\Genre;
 use App\Repositories\GenreRepository;
-use Illuminate\Http\Request;
 
 class GenreController extends Controller
 {
@@ -28,6 +27,7 @@ class GenreController extends Controller
      */
     public function index()
     {
+
         $genres = $this->genreRepository->all();
 
         return view('admin.pages.genres.genres', compact('genres'));

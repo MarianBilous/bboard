@@ -28,4 +28,16 @@ class GenreRequest extends FormRequest
             'is_enabled' => 'boolean',
         ];
     }
+
+    /**
+     * Prepare the data for validation.
+     *
+     * @return void
+     */
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'is_enabled' => (bool) $this->is_enabled,
+        ]);
+    }
 }

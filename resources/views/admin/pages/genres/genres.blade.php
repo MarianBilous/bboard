@@ -27,7 +27,7 @@
                                 <tr>
                                     <th scope="row">{{ $genre->id }}</th>
                                     <td>{{ $genre->name }}</td>
-                                    <td>{{ $genre->is_enabled ? 'YES' : 'NO' }}</td>
+                                    <td>{{ $genre->is_enabled_to_string }}</td>
                                     <td>
                                         <div class="btn-group pull-right">
                                             <a href="{{ route('genres.edit', $genre->id) }}" class="btn btn-sm btn-default">

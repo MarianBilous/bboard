@@ -14,11 +14,11 @@
                     {{ Form::text('name', null, ['class' => 'form-control']) }}
                 </div>
                 <div class="custom-control custom-switch ml-3">
-                    {{ Form::checkbox('is_enabled', 0, false, ['class' => 'form-control custom-control-input', 'id' => 'is_enabled']) }}
+                    <input type="checkbox" class="custom-control-input" name="is_enabled" id="is_enabled">
                     <label class="custom-control-label" for="is_enabled">{{ __('genres.is_enabled') }}</label>
                 </div>
                 <hr>
-                {{Form::submit(__('genres.create'), ['class' => 'btn btn-light'])}}
+                {{ Form::submit(__('genres.create'), ['class' => 'btn btn-light']) }}
             {{ Form::close() }}
         </div>
     </div>
