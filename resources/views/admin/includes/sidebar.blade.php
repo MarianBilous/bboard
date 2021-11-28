@@ -32,10 +32,10 @@
             </a>
         </li>
         <li>
-            <a href="file-manager.html">
-                <div class="parent-icon"><i class="bx bx-archive"></i>
+            <a href="{{ route('books.index') }}">
+                <div class="parent-icon"><i class="bx bxs-book-alt"></i>
                 </div>
-                <div class="menu-title">File Manager</div>
+                <div class="menu-title">{{ __('menu.books') }}</div>
             </a>
         </li>
         <li>

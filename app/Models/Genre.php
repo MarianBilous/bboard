@@ -18,6 +18,11 @@ class Genre extends Model
         'is_enabled' => 'boolean',
     ];
 
+    public function books()
+    {
+        return $this->hasMany(Book::class);
+    }
+
     /**
      * Return the string value of the is_enabled field.
      *

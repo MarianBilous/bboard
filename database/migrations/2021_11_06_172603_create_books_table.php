@@ -18,7 +18,12 @@ class CreateBooksTable extends Migration
             $table->string('title');
             $table->integer('year');
             $table->integer('inventory_number')->nullable();
+            $table->bigInteger('author_id')->unsigned()->nullable();
+            $table->bigInteger('genre_id')->unsigned()->nullable();
             $table->timestamps();
+
+            $table->foreign('author_id')->references('id')->on('authors')->onDelete('set null');
+            $table->foreign('genre_id')->references('id')->on('genres')->onDelete('set null');
         });
     }
 

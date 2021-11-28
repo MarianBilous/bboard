@@ -27,7 +27,6 @@ class GenreController extends Controller
      */
     public function index()
     {
-
         $genres = $this->genreRepository->all();
 
         return view('admin.pages.genres.genres', compact('genres'));

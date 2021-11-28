@@ -14,13 +14,11 @@
     </head>
 
     @php
-
         $theme = App\Models\Setting::where('item', 'theme')->first();
 
         if ($theme) {
             $theme = $theme->value;
         }
-
     @endphp
 
     <body class="bg-theme {{ $theme }}">
@@ -39,7 +37,6 @@
                         </div>
                     </div>
                 </div>
-
             @else
                 @yield('content')
             @endif

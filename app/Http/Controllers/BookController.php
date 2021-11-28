@@ -3,10 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Repositories\BookRepository;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
+    /**
+     * @var BookRepository
+     */
+    private $bookRepository;
+
+    /**
+     * BookController constructor.
+     *
+     * @param BookRepository $bookRepository
+     */
+    public function __construct(BookRepository $bookRepository)
+    {
+        $this->bookRepository = $bookRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +30,9 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        $books = $this->bookRepository->all();
+
+        return view('admin.pages.books.books', compact('books'));
     }
 
     /**
