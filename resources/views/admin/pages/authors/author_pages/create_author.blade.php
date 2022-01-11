@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @include('admin.includes.breadcrumb', ['title' => __('authors.create')])
+    {{ Breadcrumbs::render('authors.create') }}
 
     @include('admin.includes.errors')
 

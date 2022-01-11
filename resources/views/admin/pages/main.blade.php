@@ -1,7 +1,5 @@
 @extends('admin.layouts.layout')
 
 @section('content')
-
-    @include('admin.includes.breadcrumb', ['title' => 'BBS'])
-
+    {{ Breadcrumbs::render('home') }}
 @endsection

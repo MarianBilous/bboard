@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @include('admin.includes.breadcrumb', ['title' => __('authors.create')])
+    {{ Breadcrumbs::render('authors.edit', $author) }}
 
     @include('admin.includes.errors')
 
@@ -11,11 +11,11 @@
             {!! Form::model($author, ['method' => 'patch', 'route' => ['authors.update', $author->id]]) !!}
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <strong>{{ __('authors.first_name') }}</strong>
+                        <strong>{{ __('authors.name') }}</strong>
                         {!! Form::text('name', null, ['class' => 'form-control']) !!}
                     </div>
                     <div class="form-group col-md-6">
-                        <strong>{{ __('authors.last_name') }}</strong>
+                        <strong>{{ __('authors.surname') }}</strong>
                         {!! Form::text('surname', null, ['class' => 'form-control']) !!}
                     </div>
                 </div>
