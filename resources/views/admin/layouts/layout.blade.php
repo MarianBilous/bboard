@@ -24,7 +24,7 @@
     <body class="bg-theme {{ $theme }}">
         <div class="wrapper">
             @if(Auth::check())
-                @include('admin.includes.sidebar', ['title' => 'BBS'])
+                @include('admin.includes.sidebar')
 
                 @include('admin.includes.header')
 

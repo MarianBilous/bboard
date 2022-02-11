@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @include('admin.includes.breadcrumb', ['title' => __('books.title')])
+    {{ Breadcrumbs::render('books.index') }}
 
     <div class="card">
         <div class="card-body">
