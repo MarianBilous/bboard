@@ -2,8 +2,13 @@
 
 namespace App\Providers;
 
+use App\Repositories\AuthorRepository;
 use App\Repositories\BookRepository;
+use App\Repositories\GenreRepository;
+use App\Repositories\PermissionRepository;
 use App\Repositories\RepositoryInterface;
+use App\Repositories\RoleRepository;
+use App\Repositories\UserRepository;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -17,17 +22,32 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $this->app->bind(
             RepositoryInterface::class,
-            'App\Repositories\AuthorRepository'
+            AuthorRepository::class
         );
 
         $this->app->bind(
             RepositoryInterface::class,
-            'App\Repositories\GenreRepository'
+            GenreRepository::class
         );
 
         $this->app->bind(
             RepositoryInterface::class,
             BookRepository::class
+        );
+
+        $this->app->bind(
+            RepositoryInterface::class,
+            UserRepository::class
+        );
+
+        $this->app->bind(
+            RepositoryInterface::class,
+            PermissionRepository::class
+        );
+
+        $this->app->bind(
+            RepositoryInterface::class,
+            RoleRepository::class
         );
     }
 

@@ -10,6 +10,11 @@
 <script src="{{ asset('assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
 <script src="{{ asset('assets/plugins/edittable/bstable.js') }}"></script>
 
+<!--notification js -->
+<script src="{{ asset('assets/plugins/notifications/js/lobibox.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/notifications/js/notifications.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/notifications/js/notification-custom-script.js') }}"></script>
+
 <script>
     // Example with a add new row button & only some columns editable & removed actions column label
     var example2 = new BSTable("table2", {

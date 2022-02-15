@@ -2,56 +2,57 @@
     <div class="card-body">
 
         @include('admin.includes.errors')
-        @include('admin.includes.notifications')
 
         <div>
-            <h5></h5>
-            <button data-toggle="modal"
-                    id="createButton"
-                    data-target="#createModal"
-                    data-attr="{{ route('user.create') }}"
-                    class="btn btn-light btn-sm mb-2">
-                {{ __('user.settings.administrators.new_user') }}
-            </button>
+            @can('permission-create')
+                <button data-toggle="modal"
+                        id="createButton"
+                        data-target="#createModal"
+                        data-attr="{{ route('permissions.create') }}"
+                        class="btn btn-light btn-sm mb-2">
+                    {{ __('user.settings.permissions.new_permission') }}
+                </button>
+            @endcan
             <hr>
             <div class="table-responsive" style="overflow-x:hidden !important;">
                 <table class="table table-striped table-bordered mb-0">
                     <thead class="thead-light">
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">{{ __('user.settings.administrators.full_name') }}</th>
-                            <th scope="col">{{ __('user.settings.administrators.email') }}</th>
-                            <th scope="col">{{ __('user.settings.administrators.roles') }}</th>
+                            <th scope="col">{{ __('user.settings.permissions.name') }}</th>
+                            <th scope="col">{{ __('user.settings.permissions.guard_name') }}</th>
+                            <th scope="col">{{ __('user.settings.permissions.description') }}</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($users as $user)
+                        @foreach($permissions as $permission)
                             <tr>
-                                <th scope="row">{{ $user->id }}</th>
-                                <td>{{ $user->full_name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>greg</td>
-                                @if($user->id != 1)
-                                    <td>
-                                        <div class="btn-group pull-right">
+                                <th scope="row">{{ $permission->id }}</th>
+                                <td>{{ $permission->name }}</td>
+                                <td>{{ $permission->guard_name }}</td>
+                                <td>{{ $permission->description }}</td>
+                                <td>
+                                    <div class="btn-group pull-right">
+                                        @can('permission-edit')
                                             <button data-toggle="modal"
                                                     id="editButton"
                                                     data-target="#editModal"
-                                                    data-attr="{{ route('user.edit', $user->id) }}"
+                                                    data-attr="{{ route('permissions.edit', $permission->id) }}"
                                                     class="btn btn-sm btn-default">
                                                 <span class="fa fa-edit" > </span>
                                             </button>
-
-                                            {!! Form::open(['method' => 'DELETE', 'route' => ['user.destroy', $user->id]]) !!}
+                                        @endcan
+                                        @can('permission-delete')
+                                            {!! Form::open(['method' => 'DELETE', 'route' => ['permissions.destroy', $permission->id]]) !!}
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-sm btn-default">
                                                     <span class="fa fa-trash" > </span>
                                                 </button>
                                             {!! Form::close() !!}
-                                        </div>
-                                    </td>
-                                @endif
+                                        @endcan
+                                    </div>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -68,7 +69,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5>{{ __('user.settings.administrators.edit_user') }}</h5>
+                <h5>{{ __('user.settings.permissions.permissions_edit') }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -87,7 +88,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5>{{ __('user.settings.administrators.create_user') }}</h5>
+                <h5>{{ __('user.settings.permissions.permissions_create') }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

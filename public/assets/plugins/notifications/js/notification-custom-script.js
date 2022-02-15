@@ -272,7 +272,7 @@ function anim4_noti() {
 	});
 }
 
-function anim5_noti() {
+function anim5_noti(msg) {
 	Lobibox.notify('success', {
 		pauseDelayOnHover: true,
 		continueDelayOnInactiveTab: false,
@@ -281,6 +281,6 @@ function anim5_noti() {
 		hideClass: 'rollOut',
 		icon: 'bx bx-check-circle',
 		width: 600,
-		msg: 'Lorem ipsum dolor sit amet hears farmer indemnity inherent.'
+		msg: msg
 	});
 }

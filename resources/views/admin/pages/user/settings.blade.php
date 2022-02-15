@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @include('admin.includes.breadcrumb', ['title' => __('user.settings.labels.settings')])
+    {{ Breadcrumbs::render('settings.index') }}
 
     <div class="card radius-15">
         <div class="card-body">
@@ -26,6 +26,11 @@
                         {{ __('user.settings.tabs.roles') }}
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('permissions.index') ? 'active' : '' }}" href="{{ route('permissions.index') }}" href="#">
+                        {{ __('user.settings.tabs.permissions') }}
+                    </a>
+                </li>
             </ul>
 
             @switch(request()->url())
@@ -37,6 +42,9 @@
                     @break
                 @case(route('roles.index'))
                     @include('admin.pages.user.settings_page.role_settings')
+                    @break
+                @case(route('permissions.index'))
+                    @include('admin.pages.user.settings_page.permissions.permissions_settings')
                     @break
             @endswitch
 

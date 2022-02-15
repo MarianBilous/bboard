@@ -61,3 +61,4 @@ Breadcrumbs::macro('resource', function (string $name, string $title) {
 Breadcrumbs::resource('authors', 'Authors');
 Breadcrumbs::resource('books', 'Books');
 Breadcrumbs::resource('genres', 'Genres');
+Breadcrumbs::resource('settings', 'Settings');
