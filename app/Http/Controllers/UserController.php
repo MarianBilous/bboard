@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserFormRequest;
-use App\Models\User;
+use App\Http\Requests\UserFormUpdateRequest;
 use App\Repositories\RoleRepository;
 use App\Repositories\UserRepository;
 use App\Services\UserService;
@@ -11,10 +11,6 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -87,10 +83,10 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return void
      */
-    public function show($id)
+    public function show(int $id)
     {
         //
     }
@@ -109,29 +105,13 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param UserFormUpdateRequest $request
      * @param int $id
      * @return RedirectResponse|null
      */
-    public function update(Request $request, int $id)
+    public function update(UserFormUpdateRequest $request, int $id)
     {
-        if ($id == 1) {
-            return null;
-        }
-
-        $data = $request->all();
-
-        if (!empty($data['password']) && ($data['password'] === $data['password_confirmation'])) {
-            $data['password'] = Hash::make($data['password']);
-        } else {
-            $data = Arr::except($data, ['password', 'password_confirmation']);
-        }
-
-        $user = User::find($id);
-        $user->update($data);
-
-        DB::table('model_has_roles')->where('model_id', $id)->delete();
-        $user->assignRole($data['role']);
+        $this->userService->updateUser($request, $id);
 
         return redirect()->route('user.index')->with('success', 'User editing was successful.');
     }
@@ -139,16 +119,12 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return RedirectResponse|null
      */
-    public function destroy($id)
+    public function destroy(int $id)
     {
-        if ($id == 1) {
-            return null;
-        }
-
-        User::find($id)->delete();
+        $this->userService->destroy($id);
 
         return redirect()->route('user.index');
     }

@@ -3,11 +3,12 @@
 namespace App\Services;
 
 use App\Http\Requests\UserFormRequest;
-use App\Models\User;
+use App\Http\Requests\UserFormUpdateRequest;
 use App\Repositories\RoleRepository;
 use App\Repositories\UserRepository;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Spatie\Permission\Models\Role;
 
 class UserService
 {
@@ -74,5 +75,49 @@ class UserService
         $userRole = $user->roles->pluck('name', 'name')->all();
 
         return compact('user', 'roles', 'userRole');
+    }
+
+    /**
+     * Update user.
+     *
+     * @param UserFormUpdateRequest $request
+     * @param int $id
+     * @return mixed|null
+     */
+    public function updateUser(UserFormUpdateRequest $request, int $id)
+    {
+        if ($id == 1) {
+            return null;
+        }
+
+        $data = $request->all();
+
+        if (!empty($data['password']) && ($data['password'] === $data['password_confirmation'])) {
+            $data['password'] = Hash::make($data['password']);
+        } else {
+            $data = Arr::except($data, ['password', 'password_confirmation']);
+        }
+
+        $user = $this->userRepository->update($data, $id);
+
+        DB::table('model_has_roles')->where('model_id', $id)->delete();
+        $user->assignRole($data['role']);
+
+        return $user;
+    }
+
+    /**
+     * Deleting user by id.
+     *
+     * @param int $id
+     * @return mixed|null
+     */
+    public function destroy(int $id)
+    {
+        if ($id == 1) {
+            return null;
+        }
+
+        return $this->userRepository->delete($id);
     }
 }
