@@ -2,7 +2,7 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>{{ __('user.settings.administrators.first_name') }}</strong>
-            {!! Form::text('first_name', null, ['class' => 'form-control']) !!}
+            {{ Form::text('first_name', null, ['class' => 'form-control']) }}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -20,7 +20,7 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>{{ __('user.settings.administrators.role') }}</strong>
-            {!! Form::select('role', [$roles], null, ['class' => 'form-control']) !!}
+            {{ Form::select('role', [$roles], null, ['class' => 'form-control']) }}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">

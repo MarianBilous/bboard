@@ -196,7 +196,9 @@ new PerfectScrollbar('.header-notifications-list');
 // display edit modal
 $(document).on('click', '#editButton', function(event) {
     event.preventDefault();
+
     let href = $(this).attr('data-attr');
+
     $.ajax({
         url: href,
         // return the result
@@ -215,7 +217,9 @@ $(document).on('click', '#editButton', function(event) {
 // display create modal
 $(document).on('click', '#createButton', function(event) {
     event.preventDefault();
+
     let href = $(this).attr('data-attr');
+
     $.ajax({
         url: href,
         success: function(result) {

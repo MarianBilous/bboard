@@ -10,6 +10,7 @@ return [
             'theme' => 'Theme',
             'administrators' => 'Administrators',
             'roles' => 'Roles',
+            'permissions' => 'Permissions',
         ],
         'theme' => [
             'theme_customizer' => 'Theme Customizer',
@@ -39,6 +40,12 @@ return [
             'edit_role' => 'Edit Role',
             'permission' => 'Permission',
             'save' => 'Save',
+        ],
+        'permissions' => [
+            'new_permission' => 'New Permission',
+            'name' => 'Name',
+            'guard_name' => 'Guard name',
+            'description' => 'Description',
         ],
     ],
 ];
