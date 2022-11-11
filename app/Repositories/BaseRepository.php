@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class BaseRepository implements RepositoryInterface
 {
+
     /**
      * @var Model
      */
