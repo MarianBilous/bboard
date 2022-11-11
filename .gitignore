@@ -16,3 +16,6 @@ yarn-error.log
 /.vscode
 /resources/Syntrans
 /bootstrap/cache
+access.log
+desktop.ini
+error.log
